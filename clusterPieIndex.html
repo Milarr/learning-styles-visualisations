@@ -34,7 +34,8 @@ body {
       margin: margin,
       color: d3.scaleOrdinal().range(["#071930", "#03A694", "#F24738", "#851934"])
     }
-    let data = "vark_pie_data.json"
+    // let data = "../version2/vark_pie_data.json";
+    let data = "clusterDataSet.json"
     let svgChart = ClusterPieChart("#clusterPieChart", data, chartOptions);
       // var obj;
 
@@ -47,7 +48,7 @@ body {
     d3.select('#click_2').on('click',clickFun);
 
     function clickFun(){
-        obj.change(document.getElementById('click_1').checked);
+      obj.change(document.getElementById('click_1').checked);
     }
 
   </script>

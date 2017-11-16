@@ -1,0 +1,328 @@
+[{	"name": "Person1",
+	"values":[
+	{
+		"ele":5,
+		"type":"Visual"
+	},
+	{
+		"ele":10,
+		"type":"Audio"
+	},
+	{
+		"ele":7,
+		"type":"Read_Write"
+	},
+	{
+		"ele":4,
+		"type":"Kinesthetic"
+	}],
+	"total": 26
+		
+},
+{
+	"name": "Person2",
+	"values":[
+	{
+		"ele":1,
+		"type":"Visual"
+	},
+	{
+		"ele":5,
+		"type":"Audio"
+	},
+	{
+		"ele":6,
+		"type":"Read_Write"
+	},
+	{
+		"ele":5,
+		"type":"Kinesthetic"
+	}],
+	"total": 17
+},
+{
+	"name": "Person3",
+	"values":[
+	{
+		"ele":0,
+		"type":"Visual"
+	},
+	{
+		"ele":8,
+		"type":"Audio"
+	},
+	{
+		"ele":9,
+		"type":"Read_Write"
+	},
+	{
+		"ele":8,
+		"type":"Kinesthetic"
+	}],
+	"total": 25
+		
+},
+{
+	"name": "Person4",
+	"values":[
+	{
+		"ele":15,
+		"type":"Visual"
+	},
+	{
+		"ele":6,
+		"type":"Audio"
+	},
+	{
+		"ele":5,
+		"type":"Read_Write"
+	},
+	{
+		"ele":6,
+		"type":"Kinesthetic"
+	}],
+	"total": 32
+		
+},
+{
+	"name": "Person5",
+	"values":[
+	{
+		"ele":9,
+		"type":"Visual"
+	},
+	{
+		"ele":0,
+		"type":"Audio"
+	},
+	{
+		"ele":8,
+		"type":"Read_Write"
+	},
+	{
+		"ele":12,
+		"type":"Kinesthetic"
+	}],
+	"total": 29
+		
+},
+{
+	"name": "Person6",
+	"values":[
+	{
+		"ele":10,
+		"type":"Visual"
+	},
+	{
+		"ele":11,
+		"type":"Audio"
+	},
+	{
+		"ele":7,
+		"type":"Read_Write"
+	},
+	{
+		"ele":12,
+		"type":"Kinesthetic"
+	}],
+	"total": 40
+		
+},
+{
+	"name": "Person7",
+	"values":[
+	{
+		"ele":10,
+		"type":"Visual"
+	},
+	{
+		"ele":12,
+		"type":"Audio"
+	},
+	{
+		"ele":10,
+		"type":"Read_Write"
+	},
+	{
+		"ele":10,
+		"type":"Kinesthetic"
+	}],
+	"total": 42
+		
+},
+{
+	"name": "Person8",
+	"values":[
+	{
+		"ele":9,
+		"type":"Visual"
+	},
+	{
+		"ele":11,
+		"type":"Audio"
+	},
+	{
+		"ele":7,
+		"type":"Read_Write"
+	},
+	{
+		"ele":13,
+		"type":"Kinesthetic"
+	}],
+	"total": 40
+		
+},
+{
+	"name": "Person9",
+	"values":[
+	{
+		"ele":3,
+		"type":"Visual"
+	},
+	{
+		"ele":2,
+		"type":"Audio"
+	},
+	{
+		"ele":3,
+		"type":"Read_Write"
+	},
+	{
+		"ele":8,
+		"type":"Kinesthetic"
+	}],
+	"total": 16
+		
+},
+{
+	"name": "Person10",
+	"values":[
+	{
+		"ele":12,
+		"type":"Visual"
+	},
+	{
+		"ele":2,
+		"type":"Audio"
+	},
+	{
+		"ele":12,
+		"type":"Read_Write"
+	},
+	{
+		"ele":8,
+		"type":"Kinesthetic"
+	}],
+	"total": 34
+		
+},
+{
+	"name": "Person11",
+	"values":[
+	{
+		"ele":13,
+		"type":"Visual"
+	},
+	{
+		"ele":7,
+		"type":"Audio"
+	},
+	{
+		"ele":7,
+		"type":"Read_Write"
+	},
+	{
+		"ele":12,
+		"type":"Kinesthetic"
+	}],
+	"total": 39
+		
+},
+{
+	"name": "Person12",
+	"values":[
+	{
+		"ele":10,
+		"type":"Visual"
+	},
+	{
+		"ele":7,
+		"type":"Audio"
+	},
+	{
+		"ele":5,
+		"type":"Read_Write"
+	},
+	{
+		"ele":11,
+		"type":"Kinesthetic"
+	}],
+	"total": 33
+		
+},
+{
+	"name": "Person13",
+	"values":[
+	{
+		"ele":7,
+		"type":"Visual"
+	},
+	{
+		"ele":7,
+		"type":"Audio"
+	},
+	{
+		"ele":6,
+		"type":"Read_Write"
+	},
+	{
+		"ele":10,
+		"type":"Kinesthetic"
+	}],
+	"total": 30
+		
+},
+{
+	"name": "Person14",
+	"values":[
+	{
+		"ele":3,
+		"type":"Visual"
+	},
+	{
+		"ele":7,
+		"type":"Audio"
+	},
+	{
+		"ele":12,
+		"type":"Read_Write"
+	},
+	{
+		"ele":5,
+		"type":"Kinesthetic"
+	}],
+	"total": 27
+		
+},
+{
+	"name": "Person15",
+	"values":[
+	{
+		"ele":3,
+		"type":"Visual"
+	},
+	{
+		"ele":1,
+		"type":"Audio"
+	},
+	{
+		"ele":8,
+		"type":"Read_Write"
+	},
+	{
+		"ele":5,
+		"type":"Kinesthetic"
+	}],
+	"total": 17
+		
+}]

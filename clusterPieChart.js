@@ -28,6 +28,7 @@ const ClusterPieChart = function ClusterPieChart(parent_selector, dataPath, opti
   const parent = d3.select(parent_selector);
 
   d3.json(dataPath,function(error, data){
+    
     let dataLength = data.length;
     let piesInRow = Math.ceil(Math.sqrt(dataLength));
     let width = chartConfig.width - 100;
