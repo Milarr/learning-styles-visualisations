@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<!-- COLORS ARE NOT PERFECT YET. TOOLTIP NEEDS WORK-->
+<meta charset="utf-8">
+<head>
+<style>
+
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+#clusterPieChart{
+  text-align: center;
+  width: 60%;
+  height: 700px;
+  background-color: #F0F8FF;
+}
+</style>
+</head>
+<body>
+  <input id="click_1" type="radio" name="sel" value="true" checked="true">Length representation</input>
+  <input id="click_2" type="radio" name="sel" value="false">Angle representation</input>
+  <div id="clusterPieChart" style="display: inline-flex;"></div>
+  <script type="text/javascript" src="../d3/d3.min.js"></script>
+   <!-- <script type="text/javascript" src="/Users/mila/Documents/libraries/d3/d3.min.js"></script> -->
+  <script src="clusterPieChart.js"></script>
+
+  <script>
+    let margin = { top: 100, right: 80, bottom: 100, left: 80 },
+        width = Math.min(1000, window.innerWidth / 4) - margin.left - margin.right,
+        height = Math.min(width, window.innerHeight - margin.top - margin.bottom);
+
+    let chartOptions = {
+      width: width, 
+      height: height,
+      margin: margin,
+      color: d3.scaleOrdinal().range(["#071930", "#03A694", "#F24738", "#851934"])
+    }
+    let data = "vark_pie_data.json"
+    let svgChart = ClusterPieChart("#clusterPieChart", data, chartOptions);
+      // var obj;
+
+      // d3.json('clusterpurityDataSet.json',function(error,data){
+      //   obj = d3.clusterPie().containerID('chart').noOfCategories(4).fixAngleLayout(true);
+      //   d3.select('#chart').append('svg').datum(data).call(obj);
+      // });
+
+    d3.select('#click_1').on('click',clickFun);
+    d3.select('#click_2').on('click',clickFun);
+
+    function clickFun(){
+        obj.change(document.getElementById('click_1').checked);
+    }
+
+  </script>
+</body>
+</html>
