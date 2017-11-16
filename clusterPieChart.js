@@ -66,27 +66,33 @@ const ClusterPieChart = function ClusterPieChart(parent_selector, dataPath, opti
 
     let categoryNames = data[0].values.map(d => d.type);
 
-    legend.selectAll("rect")
+    let legendCategories = legend.selectAll(".legendCategory")
       .data(categoryNames)
       .enter()
-      .append("rect")
-      .attr("x", chartConfig.width - 65)
+      .append("g")
+      .attr("class", "legendCategory")
+
+    let legendText = legendCategories.append("text")
+    let legendSquare = legendCategories.append("rect")
+
+    legendSquare.attr("x", chartConfig.width - 65)
       .attr("y", (d, i) => i * 20)
       .attr("width", 10)
       .attr("height", 10)
-      .style("fill", (d, i) => chartConfig.colourScale(i));
+      .style("fill", (d, i) => chartConfig.colourScale(i))
 
-    legend.selectAll("text")
-      .data(categoryNames)
-      .enter()
-      .append("text")
-      .attr("x", chartConfig.width - 52)
+    legendText.attr("x", chartConfig.width - 52)
       .attr("y", (d,i) => i * 20 + 9)
       .attr("font-size", "11px")
       .attr("fill", "#737373")
       .text(d => d);
 
-    leged.on("mouseover")
+    legend.on("mouseover", function (d, i){
+      // debugger
+      })
+      .on ("mouseout", function(d, i){
+
+      });
 
     let pieGraphic = pies.attr('transform',translateBy)
       .selectAll('.pieGraphic')
