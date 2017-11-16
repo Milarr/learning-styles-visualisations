@@ -66,14 +66,14 @@ const ClusterPieChart = function ClusterPieChart(parent_selector, dataPath, opti
 
     let categoryNames = data[0].values.map(d => d.type);
 
-    let legendCategories = legend.selectAll(".legendCategory")
+    let legendCategory = legend.selectAll(".legendCategory")
       .data(categoryNames)
       .enter()
       .append("g")
       .attr("class", "legendCategory")
 
-    let legendText = legendCategories.append("text")
-    let legendSquare = legendCategories.append("rect")
+    let legendText = legendCategory.append("text")
+    let legendSquare = legendCategory.append("rect")
 
     legendSquare.attr("x", chartConfig.width - 65)
       .attr("y", (d, i) => i * 20)
@@ -86,13 +86,6 @@ const ClusterPieChart = function ClusterPieChart(parent_selector, dataPath, opti
       .attr("font-size", "11px")
       .attr("fill", "#737373")
       .text(d => d);
-
-    legend.on("mouseover", function (d, i){
-      // debugger
-      })
-      .on ("mouseout", function(d, i){
-
-      });
 
     let pieGraphic = pies.attr('transform',translateBy)
       .selectAll('.pieGraphic')
@@ -115,6 +108,14 @@ const ClusterPieChart = function ClusterPieChart(parent_selector, dataPath, opti
 
     d3.selectAll('.pieGraphic').each(RenderPieCharts);
     
+
+    legendCategory.on("mouseover", function (legendType, i){
+        d3.selectAll(`.pieGraphic .${legendType}`).attr("d", arc.outerRadius(chartConfig.radiusScale(30) * 1.2));
+      })
+      .on ("mouseout", function(legendType, i){
+        d3.selectAll(`.pieGraphic .${legendType}`).attr("d", arc.outerRadius(chartConfig.radiusScale(30) * 0.8));
+      });
+
     return svg;
   });
 
@@ -129,6 +130,7 @@ const ClusterPieChart = function ClusterPieChart(parent_selector, dataPath, opti
       .data(pie(pieData.values))
       .enter()
       .append('path')
+      .attr("class", function(d){ return d.data.type })
       .attr('transform',function(d, i){
         return 'translate('+(chartConfig.circleRadius/2)+','+(chartConfig.circleRadius/2)+')';
       })
