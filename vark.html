@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>VARK</title>
+  <script type="text/javascript" src="d3/d3.min.js"></script>
+  <!-- Google fonts -->
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+  <script src="radarChart.js" charset="utf-8"></script>
+
+  <style type="text/css">
+    body {
+      background-color: #232526;
+      font-family: 'Open Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 300;
+      fill: #242424;
+      text-align: center;
+      /*text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, -1px 0 0 #fff, 0 -1px 0 #fff;*/
+      cursor: default;
+    }
+
+    .legend {
+      font-family: 'monospace';
+      fill: white;
+    }
+  </style>
+</head>
+<body>
+  <div class="radarChart" style="display: inline-flex;"></div>
+  <script>
+    var margin = { top: 100, right: 80, bottom: 100, left: 80 },
+        width = Math.min(1000, window.innerWidth / 4) - margin.left - margin.right,
+        height = Math.min(width, window.innerHeight - margin.top - margin.bottom);
+
+    var data = [
+      { name: 'Visual',
+        axes: [
+          {axis: 'Person 1',    value: 5 },
+          {axis: 'Person 2',    value: 1 },
+          {axis: 'Person 3',     value: 0 },
+          {axis: 'Person 4',    value: 15 },
+          {axis: 'Person 5',   value: 9 },
+          {axis: 'Person 6',    value: 10 },
+          {axis: 'Person 7',    value: 10 },
+          {axis: 'Person 8',   value: 9 },
+          {axis: 'Person 9',     value: 3 },
+          {axis: 'Person 10',  value: 12 },
+          {axis: 'Person 11',    value:  13},
+          {axis: 'Person 12',    value:  10},
+          {axis: 'Person 13',  value:  7},
+          {axis: 'Person 14',    value:  3},
+          {axis: 'Person 15',   value:  3},
+          {axis: 'Person 16',  value:  8},
+          {axis: 'Person 17',    value:  7},
+          {axis: 'Person 18', value: 10},
+          {axis: 'Person 19',     value:  4},
+          {axis: 'Person 20',     value:  2},
+          {axis: 'Person 21',   value:  7},
+          {axis: 'Person 22',  value:   8},
+          {axis: 'Person 23',   value:  11},
+          {axis: 'Person 24', value:  8},
+        ]
+      },
+      { name: 'Audio',
+        axes: [
+          {axis: 'Person 1',     value: 10 },
+          {axis: 'Person 2',    value: 5 },
+          {axis: 'Person 3',     value: 8 },
+          {axis: 'Person 4',    value: 6 },
+          {axis: 'Person 5',   value: 0 },
+          {axis: 'Person 6',    value: 11 },
+          {axis: 'Person 7',    value: 12 },
+          {axis: 'Person 8',   value: 11 },
+          {axis: 'Person 9',     value: 2 },
+          {axis: 'Person 10',  value: 2 },
+          {axis: 'Person 11',    value:  7},
+          {axis: 'Person 12',    value:  7},
+          {axis: 'Person 13',  value:  7},
+          {axis: 'Person 14',    value:  7},
+          {axis: 'Person 15',   value:  1},
+          {axis: 'Person 16',  value:  9},
+          {axis: 'Person 17',    value:  9},
+          {axis: 'Person 18', value: 9},
+          {axis: 'Person 19',     value:  9},
+          {axis: 'Person 20',     value:  6},
+          {axis: 'Person 21',   value:  13},
+          {axis: 'Person 22',  value:   10},
+          {axis: 'Person 23',   value:  4},
+          {axis: 'Person 24', value:  1},
+        ]
+      },
+      { name: 'Read_Write',
+        axes: [
+          {axis: 'Person 1',     value: 7 },
+          {axis: 'Person 2',    value: 6 },
+          {axis: 'Person 3',     value: 9 },
+          {axis: 'Person 4',    value: 5 },
+          {axis: 'Person 5',   value: 8 },
+          {axis: 'Person 6',    value: 7 },
+          {axis: 'Person 7',    value: 10 },
+          {axis: 'Person 8',   value: 7 },
+          {axis: 'Person 9',     value: 3 },
+          {axis: 'Person 10',  value: 12 },
+          {axis: 'Person 11',    value:  7},
+          {axis: 'Person 12',    value:  5},
+          {axis: 'Person 13',  value:  6},
+          {axis: 'Person 14',    value:  12},
+          {axis: 'Person 15',   value:  8},
+          {axis: 'Person 16',  value:  5},
+          {axis: 'Person 17',    value:  7},
+          {axis: 'Person 18', value: 3},
+          {axis: 'Person 19',     value:  9},
+          {axis: 'Person 20',     value:  4},
+          {axis: 'Person 21',   value:  1},
+          {axis: 'Person 22',  value:   7},
+          {axis: 'Person 23',   value:  7},
+          {axis: 'Person 24', value:  2},
+        ]
+      },     
+      {
+        name: 'Kinesthetic',
+        axes: [
+          {axis: 'Person 1',     value: 4 },
+          {axis: 'Person 2',    value: 5 },
+          {axis: 'Person 3',     value: 8 },
+          {axis: 'Person 4',    value: 6 },
+          {axis: 'Person 5',   value: 12 },
+          {axis: 'Person 6',    value: 12 },
+          {axis: 'Person 7',    value: 10 },
+          {axis: 'Person 8',   value: 13 },
+          {axis: 'Person 9',     value: 8 },
+          {axis: 'Person 10',  value: 8 },
+          {axis: 'Person 11',    value: 12 },
+          {axis: 'Person 12',    value: 11 },
+          {axis: 'Person 13',  value: 10 },
+          {axis: 'Person 14',    value: 5 },
+          {axis: 'Person 15',   value: 5 },
+          {axis: 'Person 16',  value: 9 },
+          {axis: 'Person 17',    value: 10 },
+          {axis: 'Person 18', value: 14 },
+          {axis: 'Person 19',     value: 6 },
+          {axis: 'Person 20',     value: 7 },
+          {axis: 'Person 21',   value: 14 },
+          {axis: 'Person 22',  value: 6 },
+          {axis: 'Person 23',   value: 8 },
+          {axis: 'Person 24', value: 7 },
+        ]
+      }
+    ];
+
+    var radarChartOptions = {
+      w: 800,
+      h: 500,
+      margin: margin,
+      levels: 5,
+      roundStrokes: true,
+      color: d3.scaleOrdinal().range(["#071930", "#03A694", "#F24738", "#851934"]),
+      format: '.0f', 
+      legend: { title: 'learning styles', translateX: 100, translateY: 40 }
+    }
+    // color: d3.scaleOrdinal().range(["#26AF32", "#762712"]),
+    let svg_radar = RadarChart(".radarChart", data, radarChartOptions);
+  </script>
+</body>
+</html>
