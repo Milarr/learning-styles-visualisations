@@ -11,7 +11,8 @@ const ClusterPieChart = function ClusterPieChart(parent_selector, dataPath, opti
     colourScale: d3.scaleOrdinal().range(["#071930", "#03A694", "#F24738", "#851934"]),
     margin: options.margin,
     radiusScale: d3.scaleLinear(),
-    circleRadius: 0
+    circleRadius: 0,
+    legend: {title: "Learning Styles", translateX: 0, translateY: 0}
   }
 
   // let pie = d3.pie()
@@ -46,7 +47,46 @@ const ClusterPieChart = function ClusterPieChart(parent_selector, dataPath, opti
     let pies = svg.append('g').attr('class', 'pies')
       .attr('transform',translateBy);
 
-    let legend = svg.append('g').attr('class', 'legend');
+    // LEGEND
+    let legendZone = svg.append("g").attr("class", "legendZone");
+    let title = legendZone.append("text")
+      .attr("class", "title")
+      .attr("transform", `translate(${chartConfig.legend.translateX}, ${chartConfig.legend.translateY})`)
+      .attr("x", chartConfig.width - 70)
+      .attr("y", 10)
+      .attr("font-size", "12px")
+      .attr("fill", "#404040")
+      .text(chartConfig.legend.title);
+
+    let legend = legendZone.append("g")
+      .attr("class", "legend")
+      .attr("height", 100)
+      .attr("width", 200)
+      .attr("transform", `translate(${chartConfig.legend.translateX},${chartConfig.legend.translateY + 20})`);
+
+    let categoryNames = data[0].values.map(d => d.type);
+
+    legend.selectAll("rect")
+      .data(categoryNames)
+      .enter()
+      .append("rect")
+      .attr("x", chartConfig.width - 65)
+      .attr("y", (d, i) => i * 20)
+      .attr("width", 10)
+      .attr("height", 10)
+      .style("fill", (d, i) => chartConfig.colourScale(i));
+
+    legend.selectAll("text")
+      .data(categoryNames)
+      .enter()
+      .append("text")
+      .attr("x", chartConfig.width - 52)
+      .attr("y", (d,i) => i * 20 + 9)
+      .attr("font-size", "11px")
+      .attr("fill", "#737373")
+      .text(d => d);
+
+    leged.on("mouseover")
 
     let pieGraphic = pies.attr('transform',translateBy)
       .selectAll('.pieGraphic')
